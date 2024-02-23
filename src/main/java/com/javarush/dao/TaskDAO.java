@@ -27,7 +27,7 @@ public class TaskDAO {
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
     public List<Task> getAllTasks(int offset, int count) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Task t");
+        Query<Task> query = sessionFactory.getCurrentSession().createQuery("from Task t");
         query.setFirstResult(offset);
         query.setMaxResults(count);
         return query.getResultList();
